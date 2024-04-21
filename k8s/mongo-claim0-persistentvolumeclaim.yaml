@@ -10,6 +10,7 @@ metadata:
     failure-domain.beta.kubernetes.io/region: eu-de
     failure-domain.beta.kubernetes.io/zone: eu-de-01
   name: mongo-claim0
+  namespace: {{NAMESPACE}}
 spec:
   volumeName: pv-evs-mongo
   storageClassName: csi-disk
