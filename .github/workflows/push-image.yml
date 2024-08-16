@@ -29,6 +29,6 @@ jobs:
 
     - name: Push Docker Image to Repository
       run: |
-        docker login -u $REGISTRY_USER -p ${{ secrets.REGISTRY_PASSWORD }} $REGISTRY_SERVER
-        docker tag chatgpt_telegram_bot:latest $REGISTRY_SERVER/chatgpt_telegram_bot:latest
-        docker push $REGISTRY_SERVER/chatgpt_telegram_bot:latest
+        docker login -u ${{ vars.REGISTRY_USER }} -p ${{ secrets.REGISTRY_PASSWORD }} ${{ vars.REGISTRY_SERVER }}
+        docker tag chatgpt_telegram_bot:latest ${{ vars.REGISTRY_SERVER }}/chatgpt_telegram_bot:latest
+        docker push ${{ vars.REGISTRY_SERVER }}/chatgpt_telegram_bot:latest
