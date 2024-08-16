@@ -1,8 +1,8 @@
-name: Build and Deploy
+name: Build and Push image
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "azure_image" ]
 
 jobs:
   build-and-deploy:
