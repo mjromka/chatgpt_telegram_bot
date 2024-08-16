@@ -25,7 +25,7 @@ jobs:
         mv config/config.example.env config/config.env
 
     - name: Build Docker Compose
-      run: docker-compose --env-file config/config.env build
+      run: docker compose --env-file config/config.env build
 
     - name: Push Docker Image to Repository
       run: |
