@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Build and push image
 
 on:
   push:
@@ -25,10 +25,10 @@ jobs:
         mv config/config.example.env config/config.env
 
     - name: Build Docker Compose
-      run: docker-compose --env-file config/config.env build
+      run: docker compose --env-file config/config.env build
 
     - name: Push Docker Image to Repository
       run: |
-        docker login -u eu-de_POC@${{ secrets.OTC_ACCESS_KEY }} -p ${{ secrets.OTC_SECRET }} swr.eu-de.otc.t-systems.com
-        docker tag chatgpt_telegram_bot_chatgpt_telegram_bot:latest swr.eu-de.otc.t-systems.com/linkando/bot:latest
-        docker push swr.eu-de.otc.t-systems.com/linkando/bot:latest
+        docker login -u ${{ vars.REGISTRY_USER }} -p ${{ secrets.REGISTRY_PASSWORD }} ${{ vars.REGISTRY_SERVER }}
+        docker tag chatgpt_telegram_bot:latest ${{ vars.REGISTRY_SERVER }}/chatgpt_telegram_bot:latest
+        docker push ${{ vars.REGISTRY_SERVER }}/chatgpt_telegram_bot:latest
