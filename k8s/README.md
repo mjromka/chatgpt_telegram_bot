@@ -3,6 +3,7 @@
 ### Manual steps:
 
 - Create Elastic Volume Service (EVS) [separate resource outside the cluster]
+> **Note:** EVS should be in AZ where we have at least one node
 - Create Persistent Volume (PV) **pv-evs-mongo** in K8s/Storages and bound to the EVS
 - Place proper kubectl config in `~/.kube/config` (or use `KUBECONFIG` env var)
 

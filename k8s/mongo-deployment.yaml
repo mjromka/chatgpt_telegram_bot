@@ -35,6 +35,13 @@ spec:
           volumeMounts:
             - mountPath: /data/db
               name: mongo-claim0
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "200m"
+            limits:
+              memory: "128Mi"
+              cpu: "200m"
       restartPolicy: Always
       imagePullSecrets:
         - name: default-secret

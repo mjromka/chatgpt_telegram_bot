@@ -28,6 +28,13 @@ spec:
             - bot/bot.py
           image: 100.125.7.25:20202/linkando/bot:latest
           name: agent-container
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "200m"
+            limits:
+              memory: "128Mi"
+              cpu: "200m"
       imagePullSecrets:
         - name: default-secret
       restartPolicy: Always
